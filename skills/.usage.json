@@ -1,0 +1,80 @@
+{
+  "codex": {
+    "archived_at": null,
+    "created_at": "2026-06-13T06:11:15.579812+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_used_at": "2026-06-13T06:11:15.585391+00:00",
+    "last_viewed_at": "2026-06-13T06:11:15.579849+00:00",
+    "patch_count": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
+  },
+  "google-maps-lead-generation": {
+    "archived_at": null,
+    "created_at": "2026-06-12T17:27:40.422352+00:00",
+    "created_by": "agent",
+    "last_patched_at": "2026-06-13T11:06:00.325781+00:00",
+    "last_used_at": "2026-06-13T11:05:31.224970+00:00",
+    "last_viewed_at": "2026-06-13T11:05:31.219855+00:00",
+    "patch_count": 3,
+    "pinned": false,
+    "state": "active",
+    "use_count": 2,
+    "view_count": 2
+  },
+  "long-running-api-scraping": {
+    "archived_at": null,
+    "created_at": "2026-06-12T17:29:17.321356+00:00",
+    "created_by": "agent",
+    "last_patched_at": null,
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
+  },
+  "saas-landing-page-audit": {
+    "archived_at": null,
+    "created_at": "2026-06-12T17:28:25.710065+00:00",
+    "created_by": "agent",
+    "last_patched_at": "2026-06-12T17:28:54.061725+00:00",
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 1,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
+  },
+  "scalaro-agency-workflow": {
+    "archived_at": null,
+    "created_at": "2026-06-13T05:56:59.637467+00:00",
+    "created_by": "agent",
+    "last_patched_at": null,
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
+  },
+  "spike": {
+    "archived_at": null,
+    "created_at": "2026-06-13T11:04:36.083326+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_used_at": "2026-06-13T11:04:40.272550+00:00",
+    "last_viewed_at": "2026-06-13T11:04:40.258858+00:00",
+    "patch_count": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 2,
+    "view_count": 2
+  }
+}

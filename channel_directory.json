@@ -1,0 +1,39 @@
+{
+  "updated_at": "2026-06-14T08:51:34.619505",
+  "platforms": {
+    "telegram": [],
+    "discord": [],
+    "whatsapp": [
+      {
+        "id": "54740029325547@lid",
+        "name": "Yaseen",
+        "type": "dm",
+        "thread_id": null
+      }
+    ],
+    "whatsapp_cloud": [],
+    "slack": [],
+    "signal": [],
+    "mattermost": [],
+    "matrix": [],
+    "homeassistant": [],
+    "email": [],
+    "sms": [],
+    "dingtalk": [],
+    "msgraph_webhook": [],
+    "feishu": [],
+    "wecom": [],
+    "wecom_callback": [],
+    "weixin": [],
+    "bluebubbles": [],
+    "qqbot": [],
+    "yuanbao": [],
+    "google_chat": [],
+    "irc": [],
+    "line": [],
+    "ntfy": [],
+    "photon": [],
+    "simplex": [],
+    "teams": []
+  }
+}
