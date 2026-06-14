@@ -355,6 +355,52 @@ for s in json.load(sys.stdin)['secrets']:
     print(f\"  {s['name']:30}  updated: {s['updated_at']}\")"
 ```
 
+## Git Credential Setup for Automated Push
+
+When setting up automated backups (cron jobs, scripts) that need to push to GitHub without interactive prompts:
+
+### Option 1: Git Credential Store (Fastest)
+
+```bash
+# Store credentials in plaintext file (chmod 600 for security)
+git config --global credential.helper store
+echo "https://USERNAME:TOKEN@github.com" > ~/.git-credentials
+chmod 600 ~/.git-credentials
+```
+
+To get token: https://github.com/settings/tokens → Generate new token (classic) → Select `repo` scope
+
+### Option 2: SSH Key (More Secure)
+
+```bash
+# Generate SSH key
+ssh-keygen -t ed25519 -C "your-email@example.com" -f ~/.ssh/github
+
+# Add public key to GitHub
+cat ~/.ssh/github.pub
+# Go to https://github.com/settings/keys and paste
+
+# Change repo URL to SSH
+git remote set-url origin git@github.com:OWNER/REPO.git
+```
+
+### Option 3: GitHub CLI (gh auth)
+
+```bash
+gh auth login
+# Follow prompts to authenticate via browser or token
+```
+
+### Verification
+
+```bash
+# Test the connection
+cd /path/to/your/repo
+git push origin main
+
+# If successful, automated backups will work
+```
+
 Note: For secrets, `gh secret set` is dramatically simpler. If setting secrets is needed and `gh` isn't available, recommend installing it for just that operation.
 
 ## 8. Releases

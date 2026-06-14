@@ -1,0 +1,47 @@
+{
+  "jobs": [
+    {
+      "id": "c94ece51d966",
+      "name": "daily-hermes-backup",
+      "prompt": "Run a daily backup of Hermes configuration to GitHub. \n\nSteps:\n1. Navigate to /root/roofing_leads/hermes-backup\n2. Check if there are any changes to commit\n3. If changes exist, add all files, commit with timestamp, and push to origin main\n4. Also backup the leads data files from /root/roofing_leads/ and /root/amaan_academy_leads/ to the same repo\n\nCommands to run:\n```\ncd /root/roofing_leads/hermes-backup\ncp /root/roofing_leads/ALL_ROOFING_LEADS_MASTER.csv . 2>/dev/null\ncp /root/amaan_academy_leads/AMAAN_ACADEMY_LEADS.csv . 2>/dev/null\ngit add -A\ngit commit -m \"Daily backup - $(date '+%Y-%m-%d %H:%M:%S')\" || true\ngit push origin main || echo \"Push failed - check credentials\"\n```\n\nReport success or failure.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 3 * * *",
+        "display": "0 3 * * *"
+      },
+      "schedule_display": "0 3 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 0
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-06-14T09:54:24.144927-05:00",
+      "next_run_at": "2026-06-15T03:00:00-05:00",
+      "last_run_at": null,
+      "last_status": null,
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "origin",
+      "origin": {
+        "platform": "whatsapp",
+        "chat_id": "54740029325547@lid",
+        "chat_name": "Yaseen",
+        "thread_id": null
+      },
+      "enabled_toolsets": null,
+      "workdir": null
+    }
+  ],
+  "updated_at": "2026-06-14T09:54:24.147305-05:00"
+}
