@@ -42,6 +42,7 @@ Run `scripts/setup.sh` to verify all dependencies. Requires: Python 3.10+, Manim
 | **Architecture diagram** | System description | Components building up with connections | `references/mobjects.md` |
 | **Paper explainer** | Research paper | Key findings and methods animated | `references/scene-planning.md` |
 | **3D visualization** | 3D concept | Rotating surfaces, parametric curves, spatial geometry | `references/camera-and-3d.md` |
+| **Marketing video** | Product/service pitch | Animated promo with problem/solution/CTA | `references/marketing-video-pattern.md` |
 
 ## Stack
 

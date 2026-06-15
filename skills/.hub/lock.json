@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "installed": {
+    "hyperframes": {
+      "source": "official",
+      "identifier": "official/creative/hyperframes",
+      "trust_level": "builtin",
+      "scan_verdict": "caution",
+      "content_hash": "sha256:ea70a61ac96bc81a",
+      "install_path": "creative/hyperframes",
+      "files": [
+        "SKILL.md",
+        "scripts/setup.sh",
+        "references/troubleshooting.md",
+        "references/gsap.md",
+        "references/features.md",
+        "references/cli.md",
+        "references/website-to-video.md",
+        "references/composition.md"
+      ],
+      "metadata": {},
+      "installed_at": "2026-06-15T06:51:09.901877+00:00",
+      "updated_at": "2026-06-15T06:51:09.901908+00:00"
+    }
+  }
+}

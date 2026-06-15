@@ -19,7 +19,7 @@ Generate targeted business leads by scraping Google Maps using the Google Places
 
 ## Workflow
 
-### 1. API Key Handling (CRITICAL)
+## API Key Handling (CRITICAL)
 
 **Pitfall:** The API key gets corrupted when written into code blocks via `execute_code` or `write_file` because the platform masks it with `***`.
 
@@ -35,16 +35,22 @@ chmod 600 /root/.api_keys/google_maps
 ```python
 # Read from file (recommended)
 with open('/root/.api_keys/google_maps', 'r') as f:
-    API_KEY=f.read...n
+    API_KEY = f.read().strip()
+
 # Or read from env var
 import os
-API_KEY=os.env...etup: Test the API Key
+API_KEY = os.environ.get('GOOGLE_MAPS_API_KEY')
+```
 
+**Alternative for one-off scripts:** Pass the key as a command-line argument:
+```bash
+python3 scraper.py "AIza..."
+```
+
+Then in Python:
 ```python
-import requests
-API_KEY=*** = f"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.7128,-74.0060&radius=50000&keyword=roofing&key={API_KEY}"
-r = requests.get(url)
-print(r.json().get('status'))  # Should print 'OK'
+import sys
+API_KEY = sys.argv[1]
 ```
 
 ### 2. Build City List
@@ -71,11 +77,49 @@ keywords = ["roofing", "roof repair", "roof contractor", "roofing company", "roo
 
 Each search returns up to 20 results. Use `next_page_token` to get pages 2 and 3 (max 60 results per keyword per city). **Wait 2 seconds between page requests** — Google requires this.
 
-### 5. Deduplicate with Place IDs
+### 5. Deduplicate with Place IDs (CRITICAL)
 
 Store all `place_id` values in a `set()` to avoid duplicates across keywords and cities.
 
-### 6. Batch Processing Strategy
+```python
+seen_ids = set()
+
+for place in results:
+    pid = place.get("place_id")
+    if not pid or pid in seen_ids:
+        continue
+    seen_ids.add(pid)
+    # ... process lead
+```
+
+### 6. Extract Email from Website
+
+Most Google Places results don't include email. Derive it from the website domain:
+
+```python
+import re
+
+def extract_email_from_website(website):
+    if not website:
+        return ""
+    try:
+        domain = website.replace('http://', '').replace('https://', '').replace('www.', '').split('/')[0]
+        return f"info@{domain}"
+    except:
+        return ""
+
+def clean_phone(phone):
+    if not phone:
+        return ""
+    digits = re.sub(r'\D', '', phone)
+    if len(digits) == 10:
+        return f"+1-{digits[:3]}-{digits[3:6]}-{digits[6:]}"
+    elif len(digits) == 11 and digits.startswith('1'):
+        return f"+1-{digits[1:4]}-{digits[4:7]}-{digits[7:]}"
+    return phone
+```
+
+### 7. Batch Processing Strategy
 
 **Critical for large jobs:** Google Places API calls take time. Process in batches of 20 cities per script to avoid timeouts.
 

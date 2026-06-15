@@ -48,6 +48,19 @@ python3 scraper.py
 
 This returns a `session_id` immediately and notifies when done.
 
+**Alternative for very long jobs (1+ hours):** Use `nohup` with output redirection:
+
+```bash
+nohup python3 scraper.py > scraper_output.log 2>&1 &
+echo "PID: $!"
+```
+
+Then check progress by reading the log file:
+```bash
+tail -50 scraper_output.log
+cat progress.json  # if script saves progress
+```
+
 ### Step 3: Poll for Progress
 
 ```json

@@ -29,40 +29,53 @@
     "archived_at": null,
     "created_at": "2026-06-12T17:27:40.422352+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-06-13T11:06:00.325781+00:00",
-    "last_used_at": "2026-06-13T11:05:31.224970+00:00",
-    "last_viewed_at": "2026-06-13T11:05:31.219855+00:00",
-    "patch_count": 3,
+    "last_patched_at": "2026-06-15T05:22:28.637027+00:00",
+    "last_used_at": "2026-06-15T05:21:05.466776+00:00",
+    "last_viewed_at": "2026-06-15T05:21:05.460139+00:00",
+    "patch_count": 5,
     "pinned": false,
     "state": "active",
-    "use_count": 2,
-    "view_count": 2
+    "use_count": 3,
+    "view_count": 3
   },
   "google-maps-lead-scraping": {
     "archived_at": null,
     "created_at": "2026-06-14T14:57:19.647539+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-06-14T14:57:57.038042+00:00",
-    "last_used_at": null,
-    "last_viewed_at": null,
+    "last_used_at": "2026-06-15T05:21:05.492616+00:00",
+    "last_viewed_at": "2026-06-15T05:21:05.485953+00:00",
     "patch_count": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
   },
   "long-running-api-scraping": {
     "archived_at": null,
     "created_at": "2026-06-12T17:29:17.321356+00:00",
     "created_by": "agent",
-    "last_patched_at": null,
-    "last_used_at": null,
-    "last_viewed_at": null,
-    "patch_count": 0,
+    "last_patched_at": "2026-06-15T05:22:38.048142+00:00",
+    "last_used_at": "2026-06-15T05:21:05.477229+00:00",
+    "last_viewed_at": "2026-06-15T05:21:05.445290+00:00",
+    "patch_count": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
+  },
+  "manim-video": {
+    "archived_at": null,
+    "created_at": "2026-06-15T05:13:51.424481+00:00",
+    "created_by": null,
+    "last_patched_at": "2026-06-15T05:21:51.376099+00:00",
+    "last_used_at": "2026-06-15T05:21:10.606567+00:00",
+    "last_viewed_at": "2026-06-15T05:21:10.600411+00:00",
+    "patch_count": 2,
+    "pinned": false,
+    "state": "active",
+    "use_count": 2,
+    "view_count": 2
   },
   "saas-landing-page-audit": {
     "archived_at": null,
@@ -102,5 +115,18 @@
     "state": "active",
     "use_count": 2,
     "view_count": 2
+  },
+  "zernio-social-media": {
+    "archived_at": null,
+    "created_at": "2026-06-15T06:03:54.510374+00:00",
+    "created_by": null,
+    "last_patched_at": "2026-06-15T06:04:12.239527+00:00",
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 2,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
   }
 }
