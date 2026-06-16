@@ -1,0 +1,56 @@
+{
+  "video_metadata": {
+    "title": "",
+    "channel": "Global Signal",
+    "target_length_minutes": 20,
+    "resolution": "1920x1080",
+    "voice": "ElevenLabs Brian",
+    "posting_time": "8am OR 2pm OR 7pm EST",
+    "status": "draft"
+  },
+  "research": {
+    "topic": "",
+    "trending_score": "",
+    "competitor_videos": [{"title": "","views": "","vph": "","channel": "","url": ""}],
+    "key_facts": [],
+    "sources": []
+  },
+  "script": {
+    "hook": {"text": "","duration_seconds": 45,"visual": "Dark dramatic opening, globe animation"},
+    "tease": {"text": "","duration_seconds": 75,"visual": "Channel intro animation"},
+    "sections": [{"id": 1,"title": "","text": "","duration_seconds": 240,"visual_cue": "","lower_third": ""}],
+    "economic_impact": {"text": "","duration_seconds": 240,"visual_cue": "Financial charts"},
+    "call_to_action": {"text": "","duration_seconds": 60,"visual": "Subscribe animation"}
+  },
+  "thumbnail": {
+    "higgsfield_prompt": "",
+    "text_overlay": "",
+    "background": "dark",
+    "colors": ["yellow", "white", "red"]
+  },
+  "youtube_seo": {
+    "title": "",
+    "description": "",
+    "tags": [],
+    "chapters": [],
+    "category": "News & Politics",
+    "made_for_kids": false,
+    "disclaimer": "For educational and informational purposes only."
+  },
+  "production": {
+    "hyperframes_template": "global-signal-template",
+    "background_music": "dramatic-news-low",
+    "transition_style": "crossfade",
+    "subscribe_reminder_at": [30, 80],
+    "end_screen_duration": 20
+  },
+  "quality_review": {
+    "technical_score": null,
+    "content_score": null,
+    "seo_score": null,
+    "viral_potential_score": null,
+    "total_score": null,
+    "improvements_needed": [],
+    "approved": false
+  }
+}

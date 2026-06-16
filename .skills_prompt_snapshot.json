@@ -41,6 +41,10 @@
       1781330219629394893,
       2572
     ],
+    "business/youtube-finance/SKILL.md": [
+      1781592302514717238,
+      32474
+    ],
     "creative/architecture-diagram/SKILL.md": [
       1781255753178227400,
       5830
@@ -559,6 +563,19 @@
       "category": "business",
       "frontmatter_name": "scalaro-agency-workflow",
       "description": "Complete workflow for running an AI automation agency tar...",
+      "platforms": [],
+      "conditions": {
+        "fallback_for_toolsets": [],
+        "requires_toolsets": [],
+        "fallback_for_tools": [],
+        "requires_tools": []
+      }
+    },
+    {
+      "skill_name": "youtube-finance",
+      "category": "business",
+      "frontmatter_name": "youtube-finance",
+      "description": "Full pipeline for creating 3 geopolitics/economics videos...",
       "platforms": [],
       "conditions": {
         "fallback_for_toolsets": [],
