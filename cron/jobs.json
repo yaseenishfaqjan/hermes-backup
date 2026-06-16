@@ -20,7 +20,7 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 0
+        "completed": 1
       },
       "enabled": true,
       "state": "scheduled",
@@ -28,8 +28,8 @@
       "paused_reason": null,
       "created_at": "2026-06-14T09:54:24.144927-05:00",
       "next_run_at": "2026-06-16T03:00:00-05:00",
-      "last_run_at": null,
-      "last_status": null,
+      "last_run_at": "2026-06-15T03:01:01.237731-05:00",
+      "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
       "deliver": "origin",
@@ -62,17 +62,17 @@
       "schedule_display": "0 9 * * *",
       "repeat": {
         "times": null,
-        "completed": 0
+        "completed": 1
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-15T01:04:18.539458-05:00",
-      "next_run_at": "2026-06-15T09:00:00-05:00",
-      "last_run_at": null,
-      "last_status": null,
-      "last_error": null,
+      "next_run_at": "2026-06-16T09:00:00-05:00",
+      "last_run_at": "2026-06-15T09:14:54.743124-05:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: ## Daily Social Media Posting Report \u2014 June 15, 2026\n\n### \u2705 Step 1: API Key Check\n**ZERNIO_API_KEY is set** \u2014 Key is configured and available.\n\n### \u274c Step 2: Batch Posting Script Execution\nThe script was executed but **all 4 posts failed** with 400 Bad Request errors.\n\n**Results:**\n- \u2705 Successful: 0\n- \u274c Failed: 4\n\n**Failed posts:**\n1. Post 1 (Scalaro.io roofing video): 400 Client Error \u2014 `platforms.0` invalid field value\n2. Post 2 (Amaan Academy Quran video): 400 Client Error \u2014 `platforms.0` invalid field value\n3. Post 3 (Roofing tips text-only): 400 Client Error \u2014 `platforms.0` invalid field value\n4. Post 4 (Amaan Academy Ramadan offer): 400 Client Error \u2014 `platforms.0` invalid field value\n\n### \ud83d\udd0d Root Cause Identified\nThe Zernio API is rejecting the `platforms` field values. The error response from direct API testing confirmed:\n```json\n{\"error\":\"Invalid input\",\"type\":\"invalid_request_error\",\"code\":\"invalid_field_value\",\"param\":\"platforms.0\"}\n```\n\nThis means the platform identifiers (`instagram`, `tiktok`, `facebook`, `linkedin`, `twitter`) used in the script do not match what the Zernio API expects. The API likely requires different platform names (e.g., `x` instead of `twitter`, or different identifiers entirely).\n\n### \ud83d\udccb Content Ready to Post\n- **Media files exist** and are available:\n  - `/root/marketing_videos/Scalaro_Marketing_Video.mp4` (949 KB)\n  - `/root/marketing_videos/Amaan_Academy_Marketing_Video.mp4` (878 KB)\n- **4 posts prepared** with marketing copy for Scalaro.io and Amaan Academy\n\n### \u26a0\ufe0f Action Required\nThe `zernio_post.py` script needs to be updated with the **correct platform identifiers** accepted by the Zernio API. The current platform names (`instagram`, `tiktok`, `facebook`, `linkedin`, `twitter`) are being rejected.\n\n**Recommendation:** Check the Zernio API documentation at https://zernio.com/docs or contact Zernio support to get the correct platform identifier values, then update the `ALL_PLATFORMS` list in the script accordingly.",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": {
@@ -87,5 +87,5 @@
       "workdir": null
     }
   ],
-  "updated_at": "2026-06-15T03:00:16.245622-05:00"
+  "updated_at": "2026-06-15T09:14:54.745072-05:00"
 }
