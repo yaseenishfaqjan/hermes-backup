@@ -51,6 +51,19 @@
     "use_count": 1,
     "view_count": 1
   },
+  "higgsfield-soul-id": {
+    "archived_at": null,
+    "created_at": "2026-06-17T07:59:22.740310+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_used_at": "2026-06-17T07:59:22.746196+00:00",
+    "last_viewed_at": "2026-06-17T07:59:22.740365+00:00",
+    "patch_count": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
+  },
   "long-running-api-scraping": {
     "archived_at": null,
     "created_at": "2026-06-12T17:29:17.321356+00:00",
@@ -134,26 +147,26 @@
     "created_at": "2026-06-16T13:39:48.414449+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-06-16T13:39:48.421929+00:00",
-    "last_viewed_at": "2026-06-16T13:39:48.414485+00:00",
+    "last_used_at": "2026-06-17T07:57:58.111631+00:00",
+    "last_viewed_at": "2026-06-17T07:57:58.100867+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 1,
-    "view_count": 1
+    "use_count": 2,
+    "view_count": 2
   },
   "youtube-content-pipeline": {
     "archived_at": null,
     "created_at": "2026-06-16T09:31:15.783410+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-06-16T14:44:18.780648+00:00",
-    "last_used_at": "2026-06-16T14:38:55.330301+00:00",
-    "last_viewed_at": "2026-06-16T14:38:55.297549+00:00",
+    "last_used_at": "2026-06-17T07:57:58.121606+00:00",
+    "last_viewed_at": "2026-06-17T07:57:58.116072+00:00",
     "patch_count": 6,
     "pinned": false,
     "state": "active",
-    "use_count": 2,
-    "view_count": 2
+    "use_count": 3,
+    "view_count": 3
   },
   "youtube-finance": {
     "archived_at": null,
