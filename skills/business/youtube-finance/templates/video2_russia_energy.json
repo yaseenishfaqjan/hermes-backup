@@ -1,0 +1,102 @@
+{
+  "video_id": "video_2_day_2",
+  "topic": "Russia Energy Crisis",
+  "title": "EXPOSED: Russia's Secret Plan to Freeze Europe This Winter",
+  "hook": "Europe is sleepwalking into another energy crisis, gas prices have nearly doubled",
+  "estimated_search_volume": "400K+ monthly",
+  "priority": "high",
+  "script_status": "pending",
+  "voiceover_status": "pending",
+  "thumbnail_status": "pending",
+  "visuals_status": "pending",
+  "assembly_status": "pending",
+  "upload_status": "pending",
+  "publish_time": "2026-06-17T14:00:00Z",
+  "target_length_minutes": 20,
+  "word_count_target": 3000,
+  "speaking_pace_wpm": 150,
+  "voice_id": "auq43ws1oslv0tO4BDa7",
+  "thumbnail_prompt": "Dark dramatic YouTube thumbnail, European city skyline at night with lights dimming, red gas pipeline glowing, bold red text ENERGY WAR, snow falling, cinematic lighting, professional news channel style, dark navy background, high contrast, 1280x720",
+  "b_roll_tags": [
+    "[B-ROLL: Aerial view of European city at night with lights dimming]",
+    "[B-ROLL: Russian gas pipeline with flowing gas visualization]",
+    "[B-ROLL: European Union flag waving in wind]",
+    "[B-ROLL: Gas price chart showing spike upward]",
+    "[B-ROLL: European families huddled around heaters in winter]",
+    "[B-ROLL: LNG tanker ship arriving at European port]",
+    "[B-ROLL: Russian oil refinery with smoke stacks]",
+    "[B-ROLL: European Parliament building in Brussels]",
+    "[B-ROLL: Natural gas storage facility with low levels]",
+    "[B-ROLL: Map of Europe showing gas pipeline routes from Russia]"
+  ],
+  "sections": [
+    {
+      "name": "HOOK",
+      "duration": "0:00-0:45",
+      "content": "Europe is sleepwalking into another energy crisis..."
+    },
+    {
+      "name": "CONTEXT",
+      "duration": "0:45-3:00",
+      "content": "How did we get here? The story of Europe's energy dependence..."
+    },
+    {
+      "name": "DEEP_DIVE_1",
+      "duration": "3:00-8:00",
+      "content": "Russia's strategy: weaponizing energy exports..."
+    },
+    {
+      "name": "DEEP_DIVE_2",
+      "duration": "8:00-13:00",
+      "content": "Europe's response: LNG imports, renewable push, nuclear debate..."
+    },
+    {
+      "name": "ANALYSIS",
+      "duration": "13:00-17:00",
+      "content": "What happens next? 30-day, 6-month, 5-year outlook..."
+    },
+    {
+      "name": "CTA",
+      "duration": "17:00-20:00",
+      "content": "Subscribe for daily geopolitical analysis..."
+    }
+  ],
+  "tags": [
+    "geopolitics",
+    "russia",
+    "energy",
+    "europe",
+    "gas prices",
+    "lng",
+    "energy crisis",
+    "winter",
+    "eu",
+    "pipeline",
+    "natural gas",
+    "oil",
+    "economy",
+    "global signal",
+    "2026"
+  ],
+  "competitor_videos": [
+    {
+      "channel": "The Rational Perspective",
+      "title": "Russia's Energy War on Europe",
+      "views": "2.1M",
+      "published": "2 days ago"
+    },
+    {
+      "channel": "Military HQ",
+      "title": "How Russia Controls Europe's Winter",
+      "views": "1.8M",
+      "published": "3 days ago"
+    }
+  ],
+  "sources": [
+    "https://www.reuters.com/business/energy/",
+    "https://www.bloomberg.com/news/energy",
+    "https://www.ft.com/europe"
+  ],
+  "created_at": "2026-06-16T04:30:00Z",
+  "updated_at": "2026-06-16T04:30:00Z"
+}

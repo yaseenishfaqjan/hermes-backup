@@ -1,13 +1,15 @@
 User: Yaseen Ishfaq Jan
-- Role: Entrepreneur building AI automation agency (scalaro.io) + Amaan Academy (Quran education)
-- Goal: $1M+ in 6 months selling AI automation to local businesses
-- Pricing: $997/$2,497/$4,997 tiers for scalaro.io
-- GitHub: yaseenishfaqjan/hermes-backup (daily 3 AM backups active)
-- Work style: ONE task at a time, complete fully then next. Results-focused, cost-insensitive for ROI. Gets frustrated with delays and verbose explanations. Wants immediate execution when saying "do X".
-- Expects me as: Marketing manager + lead gen + sales automation + product dev + video creator
-- Has 7,681 roofing leads + 2,656 Amaan Academy leads
-- Connected: Zernio social media API (multi-platform posting), Google Maps API
-- Wants: Codex/OpenAI agents, outbound calling agents, 10,000+ leads, ZIP exports, 24/7 background processes
-- WhatsApp comms, NO markdown, direct concise answers
+- Role: Entrepreneur - scalaro.io, amaanacademy.com, Global Signal YouTube
+- Goal: $1M+ in 6 months, fully automated
+- Pricing: $997/$2,497/$4,997
+- Work style: ONE task at a time, complete fully then next. Results-focused, impatient with delays. Wants immediate execution. Prefers /approve always.
+- Expects me as: Marketing manager + lead gen + dev + video creator + YouTube producer
+- Assets: 7,681 roofing leads, 2,656 Amaan leads, GitHub backup, Zernio API
+- APIs: Zernio, ElevenLabs (Voice ID auq43ws1oslv0tO4BDa7), Perplexity, OpenAI, Firecrawl, HeyGen, Cloudinary, Kimi, OpenRouter, Telegram, HyperFrames (local)
+- Missing: Higgsfield (API down), YouTube API
+- Comms: WhatsApp, NO markdown, concise only
+- VPS user, GitHub: yaseenishfaqjan, cloned marketingskills repo
 §
-User runs Amaan Academy (Quran/Islamic education) and scalaro.io (AI agency). Wants practical, fast results. Comfortable with VPS terminal commands. Direct communication style, gets frustrated with delays. Wants 10,000+ leads and real working systems, not just plans. Interested in advanced Hermes workflows (meta-prompting, kanban, research automation, memory wiki, multi-device admin, morning priority prompts).
+PREFERS DIRECT EXECUTION: Run commands immediately when asked, show results not plans. Keep updates concise - file paths + status only. No lengthy explanations. WhatsApp comms, NO markdown.
+§
+User prefers direct execution over lengthy explanations. When asked to do something, run commands immediately and show results. Use concise status updates like [5/20] rather than verbose descriptions. Always show absolute file paths for generated files. User gets frustrated with too much explanation before action.

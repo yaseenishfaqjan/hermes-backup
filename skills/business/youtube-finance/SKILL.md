@@ -1,6 +1,6 @@
 ---
 title: YouTube Finance Channel Automation (Global Signal)
-description: Full pipeline for creating 3 geopolitics/economics videos per day (18-25 min) using HyperFrames, ElevenLabs Brian, Higgsfield, and HeyGen.
+description: Full pipeline for creating 3 geopolitics/economics videos per day (18-25 min) using HyperFrames, ElevenLabs Voice ID: auq43ws1oslv0tO4BDa7, Higgsfield, and HeyGen.
 trigger: youtube, video, automation, global signal, finance, geopolitics
 requirements:
   - ffmpeg
@@ -324,7 +324,7 @@ if __name__ == "__main__":
 
 ---
 
-## Phase 3: Voiceover Generation (ElevenLabs Brian)
+## Phase 3: Voiceover Generation (ElevenLabs Voice ID: auq43ws1oslv0tO4BDa7)
 
 ### Voice Profile
 
@@ -927,20 +927,184 @@ if __name__ == "__main__":
 
 ---
 
-## Environment Variables Required
+## Environment Setup (CRITICAL)
 
-```bash
-# Add to /root/.env or export manually
-export OPENAI_API_KEY="sk-..."
-export ELEVENLABS_API_KEY="..."
-export HYPERFRAMES_API_KEY="..."
-export HIGGSFIELD_API_KEY="..."
-export HEYGEN_API_KEY="..."
-export NEWS_API_KEY="..."
-export REDDIT_CLIENT_ID="..."
-export REDDIT_SECRET="..."
-export YOUTUBE_CLIENT_SECRETS="/root/.youtube_client_secrets.json"
+### Loading API Keys Correctly
+
+**❌ WRONG — os.environ.get() often fails:**
+```python
+import os
+ELEVENLABS_KEY = os.environ.get("ELEVENLABS_API_KEY")  # May be empty!
 ```
+
+**✅ CORRECT — Read .env file directly:**
+```python
+def load_api_key(key_name, env_file="/root/.hermes/.env"):
+    """Load API key directly from .env file — most reliable method"""
+    try:
+        with open(env_file, 'r') as f:
+            for line in f:
+                if line.startswith(f"{key_name}="):
+                    return line.strip().split('=', 1)[1].strip().strip('"').strip("'")
+    except:
+        pass
+    return os.environ.get(key_name, "")
+
+# Usage
+ELEVENLABS_KEY = load_api_key("ELEVENLABS_API_KEY")
+OPENAI_KEY = load_api_key("OPENAI_API_KEY")
+PERPLEXITY_KEY = load_api_key("PERPLEXITY_API_KEY")
+HIGGSFIELD_KEY = load_api_key("HIGGSFIELD_API_KEY")
+```
+
+**Why:** The `source /root/.hermes/.env` command only works in the shell session that runs it. Python scripts started separately won't inherit those variables unless the environment is explicitly loaded.
+
+### Pre-Flight API Check
+
+Always verify APIs before starting production:
+
+```python
+#!/usr/bin/env python3
+"""Quick API health check — run this before every production session"""
+
+import requests
+
+def load_api_key(key_name):
+    with open('/root/.hermes/.env', 'r') as f:
+        for line in f:
+            if line.startswith(f"{key_name}="):
+                return line.strip().split('=', 1)[1].strip().strip('"').strip("'")
+    return ""
+
+def check_api(name, url, headers, method="GET", data=None):
+    try:
+        if method == "POST":
+            r = requests.post(url, headers=headers, json=data, timeout=10)
+        else:
+            r = requests.get(url, headers=headers, timeout=10)
+        status = "✅" if r.status_code in [200, 401] else f"❌ ({r.status_code})"
+    except Exception as e:
+        status = f"❌ ({str(e)[:30]})"
+    print(f"  {name}: {status}")
+
+print("🔍 API Health Check:")
+check_api("ElevenLabs", "https://api.elevenlabs.io/v1/voices", 
+          {"xi-api-key": load_api_key("ELEVENLABS_API_KEY")})
+check_api("OpenAI", "https://api.openai.com/v1/models", 
+          {"Authorization": f"Bearer {load_api_key('OPENAI_API_KEY')}"})
+check_api("Perplexity", "https://api.perplexity.ai/models", 
+          {"Authorization": f"Bearer {load_api_key('PERPLEXITY_API_KEY')}"})
+check_api("Higgsfield", "https://api.higgsfield.ai/v1/images/generations", 
+          {"Authorization": f"Bearer {load_api_key('HIGGSFIELD_API_KEY')}"}, "POST", {"prompt": "test"})
+```
+
+## Higgsfield Integration (Browser + CLI)
+
+### Status: API Down, CLI Available
+
+**API Issue:** https://api.higgsfield.ai returns 522 Cloudflare timeout
+**Solution:** Use Higgsfield CLI or browser automation
+
+### CLI Setup
+```bash
+# Install
+curl -fsSL https://raw.githubusercontent.com/higgsfield-ai/cli/main/install.sh | sh
+
+# Authenticate (opens browser)
+higgsfield auth login
+
+# Check status
+higgsfield auth status
+
+# Generate image
+higgsfield generate create nano_banana_2 \
+  --prompt "Dark dramatic YouTube thumbnail..." \
+  --aspect_ratio 16:9 \
+  --resolution 2k \
+  --wait
+```
+
+### Browser Fallback (When CLI Fails)
+```python
+# Use Hermes browser tools
+# 1. Navigate to https://higgsfield.ai/image
+# 2. Enter prompt
+# 3. Download result
+# 4. Upload to VPS
+```
+
+## Marketing Skills Integration
+
+**Repo:** https://github.com/coreyhaines31/marketingskills
+**Skills:** 46 marketing skills (ab-testing, ad-creative, content-strategy, copywriting, cro, email, seo, social, video, etc.)
+**Location:** `/root/.hermes/skills/marketing-skills-bundle/`
+
+## Production Workflow (Updated)
+
+### Daily Checklist (Run Before Production)
+
+- [ ] Load API keys using `load_api_key()` function
+- [ ] Run API health check script
+- [ ] Verify Higgsfield status (API vs CLI vs Browser)
+- [ ] Check ElevenLabs voice ID: auq43ws1oslv0tO4BDa7 is available
+- [ ] Verify HyperFrames is installed: `hyperframes --version`
+- [ ] Check disk space: `df -h`
+- [ ] Review content calendar for today's topics
+
+### Video Production Sequence
+
+1. **Research** (6:00 AM) — Perplexity + OpenAI
+2. **Script** (7:00 AM) — GPT-4o, save to JSON
+3. **Voiceover** (8:00 AM) — ElevenLabs Brian voice
+4. **Visuals** (9:00 AM) — HyperFrames + Higgsfield CLI
+5. **Thumbnail** (10:00 AM) — Higgsfield or browser
+6. **Assembly** (11:00 AM) — FFmpeg
+7. **Review** (12:00 PM) — Quality check
+8. **Upload** (1:00 PM) — YouTube Data API
+9. **Schedule** — Set publish time (8am, 2pm, 7pm EST)
+
+## Troubleshooting Guide
+
+### ElevenLabs 401 Error
+- Check key is loaded correctly with `load_api_key()`
+- Verify key hasn't expired
+- Check rate limits: https://elevenlabs.io/docs/api-reference/rate-limits
+
+### Higgsfield 522 Error
+- API server is down
+- Use CLI: `higgsfield auth login` then `higgsfield generate create`
+- Use browser: https://higgsfield.ai/image
+- Wait and retry later
+
+### HyperFrames Not Found
+- Install: `npm install -g hyperframes`
+- Verify: `hyperframes --version`
+- Use local rendering (no API key needed)
+
+### Voiceover Too Long/Short
+- Check word count: 3,000 words = 20 minutes at 150 WPM
+- Adjust script length before generating voiceover
+- Use chunking strategy for ElevenLabs (5,000 char limit)
+
+### Video Assembly Fails
+- Check FFmpeg is installed: `ffmpeg -version`
+- Verify all input files exist
+- Check disk space: `df -h`
+- Use `-y` flag to overwrite existing files
+
+## File Locations (Updated)
+
+| File | Path |
+|------|------|
+| Logo | `/root/youtube_pipeline/assets/global_signal_logo.png` |
+| Content Calendar | `/root/youtube_pipeline/content_calendar/` |
+| Scripts | `/root/youtube_pipeline/scripts/` |
+| Voiceovers | `/root/youtube_pipeline/voiceovers/` |
+| Visuals | `/root/youtube_pipeline/visuals/` |
+| Final Videos | `/root/youtube_pipeline/final_videos/` |
+| Thumbnails | `/root/youtube_pipeline/thumbnails/` |
+| API Lessons | `/root/.hermes/skills/business/youtube-finance/references/api-lessons-learned.md` |
+| Marketing Skills | `/root/.hermes/skills/marketing-skills-bundle/` |
 
 ---
 
@@ -960,7 +1124,7 @@ Auto-populated via YouTube Data API + scheduled script.
 | Service | Cost |
 |---------|------|
 | GPT-4o (script) | ~$0.50 |
-| ElevenLabs Brian (voice) | ~$0.30 |
+| ElevenLabs Voice ID: auq43ws1oslv0tO4BDa7 (voice) | ~$0.30 |
 | HyperFrames (visuals) | ~$2.00 |
 | Higgsfield (AI video) | ~$1.50 |
 | HeyGen (thumbnail) | ~$0.20 |
@@ -1002,7 +1166,7 @@ python3 scripts/youtube_uploader.py output.mp4 "Title" "Description" tag1 tag2 t
 ├── scripts/
 │   ├── research_bot.py               # Morning research
 │   ├── script_generator.py           # Long-form script writing
-│   ├── voiceover_generator.py        # ElevenLabs Brian voice
+│   ├── voiceover_generator.py        # ElevenLabs Voice ID: auq43ws1oslv0tO4BDa7 voice
 │   ├── visual_pipeline.py            # HyperFrames + Higgsfield
 │   ├── video_assembler.py            # FFmpeg assembly
 │   ├── youtube_uploader.py           # YouTube Data API

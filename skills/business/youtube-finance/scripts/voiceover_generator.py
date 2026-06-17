@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Global Signal Voiceover Generator
-Uses ElevenLabs Brian voice to create professional narration
+Uses ElevenLabs auq43ws1oslv0tO4BDa7 voice to create professional narration
 """
 
 import os
@@ -10,7 +10,7 @@ import time
 from pathlib import Path
 
 ELEVENLABS_KEY = os.getenv("ELEVENLABS_API_KEY")
-VOICE_ID = "Brian"  # or exact voice ID if needed
+VOICE_ID = "auq43ws1oslv0tO4BDa7"  # Global Signal official channel voice - NEVER CHANGE
 
 def generate_voiceover(script_path: str, output_dir: str = "/root/youtube_pipeline/voiceovers"):
     """Generate voiceover from script, chunked for ElevenLabs"""

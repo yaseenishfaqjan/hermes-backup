@@ -234,6 +234,13 @@ crontab -e
 0 9 * * * cd /root && python3 /root/scripts/daily_social_post.py >> /root/logs/social_posts.log 2>&1
 ```
 
+## User Preferences (Learned from Session)
+
+- **Direct execution preferred**: User wants commands run immediately, not explained first
+- **Minimal verbosity**: Provide status updates, not lengthy explanations
+- **Show file paths**: Always include absolute paths for generated files
+- **Progress indicators**: Use simple progress counters (e.g., "[5/20] City Name")
+
 ## Best Practices
 
 1. **Content Calendar**: Plan posts 1-2 weeks ahead
@@ -243,3 +250,4 @@ crontab -e
 5. **Mix Content**: 80% value, 20% promotion
 6. **A/B Testing**: Test different headlines and images
 7. **Track ROI**: Monitor clicks and conversions
+8. **Voice Consistency**: See `references/voice-id-registry.md` for channel voice assignments

@@ -116,17 +116,69 @@
     "use_count": 2,
     "view_count": 2
   },
-  "zernio-social-media": {
+  "youtube-automation": {
     "archived_at": null,
-    "created_at": "2026-06-15T06:03:54.510374+00:00",
-    "created_by": null,
-    "last_patched_at": "2026-06-15T06:04:12.239527+00:00",
+    "created_at": "2026-06-16T13:22:22.335957+00:00",
+    "created_by": "agent",
+    "last_patched_at": "2026-06-16T13:24:19.364379+00:00",
     "last_used_at": null,
     "last_viewed_at": null,
-    "patch_count": 2,
+    "patch_count": 3,
     "pinned": false,
     "state": "active",
     "use_count": 0,
     "view_count": 0
+  },
+  "youtube-content": {
+    "archived_at": null,
+    "created_at": "2026-06-16T13:39:48.414449+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_used_at": "2026-06-16T13:39:48.421929+00:00",
+    "last_viewed_at": "2026-06-16T13:39:48.414485+00:00",
+    "patch_count": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
+  },
+  "youtube-content-pipeline": {
+    "archived_at": null,
+    "created_at": "2026-06-16T09:31:15.783410+00:00",
+    "created_by": "agent",
+    "last_patched_at": "2026-06-16T14:44:18.780648+00:00",
+    "last_used_at": "2026-06-16T14:38:55.330301+00:00",
+    "last_viewed_at": "2026-06-16T14:38:55.297549+00:00",
+    "patch_count": 6,
+    "pinned": false,
+    "state": "active",
+    "use_count": 2,
+    "view_count": 2
+  },
+  "youtube-finance": {
+    "archived_at": null,
+    "created_at": "2026-06-16T13:39:53.285573+00:00",
+    "created_by": null,
+    "last_patched_at": "2026-06-16T21:00:24.153715+00:00",
+    "last_used_at": "2026-06-16T20:59:08.042610+00:00",
+    "last_viewed_at": "2026-06-16T20:59:08.022901+00:00",
+    "patch_count": 4,
+    "pinned": false,
+    "state": "active",
+    "use_count": 3,
+    "view_count": 3
+  },
+  "zernio-social-media": {
+    "archived_at": null,
+    "created_at": "2026-06-15T06:03:54.510374+00:00",
+    "created_by": null,
+    "last_patched_at": "2026-06-16T09:30:27.696305+00:00",
+    "last_used_at": "2026-06-16T09:29:58.397322+00:00",
+    "last_viewed_at": "2026-06-16T09:29:58.392698+00:00",
+    "patch_count": 7,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
   }
 }

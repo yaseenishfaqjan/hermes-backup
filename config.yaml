@@ -481,9 +481,9 @@ matrix:
   free_response_rooms: ''
   allowed_rooms: ''
 approvals:
-  mode: manual
+  mode: always
   timeout: 60
-  cron_mode: deny
+  cron_mode: allow
   mcp_reload_confirm: true
   destructive_slash_confirm: true
 command_allowlist:
