@@ -154,12 +154,29 @@ Scripts are JSON files with this structure:
 - Verify voice ID in `references/voice-registry.md`
 - Check script length (max 5000 chars per chunk)
 - **HTTP 401 Error**: API key is invalid or expired. Generate new key at https://elevenlabs.io/settings/api-keys
-- **HTTP 422 Error**: Voice ID not found. Verify in ElevenLabs Voice Library
+- **HTTP 422 Error / Voice ID not found**: The voice ID doesn't exist in the current ElevenLabs account. Common causes:
+  - Voice ID is from a different ElevenLabs account (e.g., user's personal account vs the one configured in `.env`)
+  - Voice was deleted or expired
+  - Voice ID is from HeyGen (different platform) — HeyGen voice IDs are NOT compatible with ElevenLabs API
+  - **Fix**: List available voices with `curl https://api.elevenlabs.io/v1/voices -H "xi-api-key: $KEY"` and use one of those IDs
+  - **Fallback**: Use a premade voice like `XB0fDUnXU5powFXDhCwa` (male) or `pNInz6obpgDQGcFmaJgB` (Adam - dominant, firm)
 
 ### Video assembly fails
 - Check ffmpeg: `ffmpeg -version`
 - Verify visual assets exist: `ls /root/youtube_pipeline/visuals/`
 - Check disk space: `df -h`
+
+### Image generation APIs fail (OpenAI, Higgsfield, etc.)
+- **Billing limit reached**: Switch to PIL/Pillow + ffmpeg programmatic approach
+- **Auth hanging**: Use `skill_view(name='video')` for Hyperframes/Remotion fallback, or build frames with PIL
+- **No image gen available**: Generate frames with Python PIL → ffmpeg assembly. See `scripts/pil_frame_generator.py` for boilerplate
+- **Hyperframes module issues**: If `hyperframes` npm import fails, use direct ffmpeg with image sequences instead
+
+### Image generation APIs fail (OpenAI, Higgsfield, etc.)
+- **Billing limit reached**: Switch to PIL/Pillow + ffmpeg programmatic approach
+- **Auth hanging**: Use `skill_view(name='video')` for Hyperframes/Remotion fallback, or build frames with PIL
+- **No image gen available**: Generate frames with Python PIL → ffmpeg assembly. See `scripts/pil_frame_generator.py` for boilerplate
+- **Hyperframes module issues**: If `hyperframes` npm import fails, use direct ffmpeg with image sequences instead
 
 ### Higgsfield / Thumbnail Generation
 - **API 522 Error**: Higgsfield API server is down. Use CLI instead: `higgsfield auth login` then `higgsfield generate create`
@@ -183,6 +200,7 @@ HIGGSFIELD_API_KEY=your_key_here
 - `references/voice-registry.md` - Channel voice assignments + ElevenLabs troubleshooting
 - `references/higgsfield-cli-guide.md` - Higgsfield CLI setup for thumbnails
 - `templates/script-template.json` - Script JSON template
+- `scripts/pil_frame_generator.py` - PIL + ffmpeg fallback when image generation APIs fail
 - `scripts/research_bot.py` - Topic research automation
 - `scripts/script_generator.py` - Script writing
 - `scripts/voiceover_generator.py` - Voiceover generation

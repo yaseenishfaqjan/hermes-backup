@@ -56,13 +56,26 @@
     "created_at": "2026-06-17T07:59:22.740310+00:00",
     "created_by": null,
     "last_patched_at": null,
-    "last_used_at": "2026-06-17T07:59:22.746196+00:00",
-    "last_viewed_at": "2026-06-17T07:59:22.740365+00:00",
+    "last_used_at": "2026-06-17T09:10:57.610319+00:00",
+    "last_viewed_at": "2026-06-17T09:10:57.606279+00:00",
     "patch_count": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 1,
-    "view_count": 1
+    "use_count": 2,
+    "view_count": 2
+  },
+  "hyperframes": {
+    "archived_at": null,
+    "created_at": "2026-06-17T10:48:52.499729+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_used_at": "2026-06-17T10:52:07.041878+00:00",
+    "last_viewed_at": "2026-06-17T10:52:07.036951+00:00",
+    "patch_count": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 3,
+    "view_count": 3
   },
   "long-running-api-scraping": {
     "archived_at": null,
@@ -129,6 +142,32 @@
     "use_count": 2,
     "view_count": 2
   },
+  "video": {
+    "archived_at": null,
+    "created_at": "2026-06-17T09:11:33.871013+00:00",
+    "created_by": null,
+    "last_patched_at": "2026-06-17T09:47:50.893759+00:00",
+    "last_used_at": "2026-06-17T09:45:21.975326+00:00",
+    "last_viewed_at": "2026-06-17T09:45:21.969117+00:00",
+    "patch_count": 6,
+    "pinned": false,
+    "state": "active",
+    "use_count": 2,
+    "view_count": 2
+  },
+  "video-production-fallback": {
+    "archived_at": null,
+    "created_at": "2026-06-17T10:53:15.436548+00:00",
+    "created_by": "agent",
+    "last_patched_at": "2026-06-17T10:54:25.453167+00:00",
+    "last_used_at": null,
+    "last_viewed_at": null,
+    "patch_count": 1,
+    "pinned": false,
+    "state": "active",
+    "use_count": 0,
+    "view_count": 0
+  },
   "youtube-automation": {
     "archived_at": null,
     "created_at": "2026-06-16T13:22:22.335957+00:00",
@@ -159,14 +198,14 @@
     "archived_at": null,
     "created_at": "2026-06-16T09:31:15.783410+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-06-16T14:44:18.780648+00:00",
-    "last_used_at": "2026-06-17T07:57:58.121606+00:00",
-    "last_viewed_at": "2026-06-17T07:57:58.116072+00:00",
-    "patch_count": 6,
+    "last_patched_at": "2026-06-17T10:57:03.613082+00:00",
+    "last_used_at": "2026-06-17T10:54:32.372041+00:00",
+    "last_viewed_at": "2026-06-17T10:54:32.365552+00:00",
+    "patch_count": 13,
     "pinned": false,
     "state": "active",
-    "use_count": 3,
-    "view_count": 3
+    "use_count": 6,
+    "view_count": 6
   },
   "youtube-finance": {
     "archived_at": null,

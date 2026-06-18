@@ -40,9 +40,10 @@ Pick the right tool for the job:
 
 | Approach | Best For | Tools | When to Use |
 |----------|----------|-------|-------------|
-| **Programmatic** | Templated, data-driven, batch video | Remotion, Hyperframes | Product updates, personalized videos, recurring content |
+| **Programmatic** | Templated, data-driven, batch video | Remotion, Hyperframes, PIL+ffmpeg | Product updates, personalized videos, recurring content |
 | **AI Generation** | Original footage from text/image prompts | Veo 3, Sora 2, Runway, Kling, Seedance | B-roll, hero shots, creative visuals you can't film |
-| **AI Avatars** | Talking-head presenter without filming | HeyGen, Synthesia | Explainers, tutorials, multilingual content |
+| **AI Avatars** | Talking-head presenter without filming | HeyGen, Synthesia, Higgsfield Soul | Explainers, tutorials, multilingual content |
+| **PIL Fallback** | When all image gen APIs fail | Python PIL + ffmpeg | Static frames with text, gradients, user photos |
 | **Editing/Repurposing** | Cutting long-form into short clips | Descript, Opus Clip, CapCut | Podcast/webinar → social clips |
 
 ---
@@ -50,6 +51,27 @@ Pick the right tool for the job:
 ## Programmatic Video
 
 Build videos with code. Best for repeatable, templated, or data-driven video at scale.
+
+### Fallback: PIL + FFmpeg (most reliable)
+
+When Hyperframes/Remotion fail or image generation APIs are unavailable, generate frames with Python PIL and assemble with ffmpeg. This is the most reliable agent-native approach — zero external dependencies beyond ffmpeg and Pillow.
+
+```bash
+pip install Pillow  # if not available
+python3 /root/.hermes/skills/youtube-content-pipeline/scripts/pil_frame_generator.py script.txt output.mp4
+```
+
+**Why use this:**
+- No npm/node setup issues
+- No browser rendering timeouts
+- Works even when all image generation APIs fail
+- Fast frame generation (~1000 frames in 2-3 minutes)
+- Easy to customize colors, text, gradients
+
+**Limitations:**
+- Static frames (no complex animations)
+- Text-only overlays (no AI-generated B-roll)
+- Good for: explainer videos, product demos, text-heavy marketing videos
 
 ### Hyperframes (HTML/CSS — recommended for agents)
 
@@ -79,6 +101,31 @@ await render({
 **Best for:** Product announcements, changelogs, data-driven reports, personalized outreach videos.
 
 **Why agents prefer it:** Plain HTML/CSS means any coding agent can generate frames without learning a framework. Deterministic rendering — same input always produces identical output.
+
+**⚠️ Known issue:** The `hyperframes` npm package may have module resolution issues in some environments. If `import { render } from "hyperframes"` fails with `MODULE_NOT_FOUND`, use the **PIL + ffmpeg fallback** below instead.
+
+### PIL + ffmpeg Fallback (when Hyperframes fails)
+
+When all programmatic and AI generation tools fail, generate frames with Python PIL and assemble with ffmpeg:
+
+```python
+from PIL import Image, ImageDraw, ImageFont
+
+# Create gradient background
+img = Image.new('RGB', (1920, 1080), (10, 10, 15))
+draw = ImageDraw.Draw(img)
+
+# Add text
+draw.text((960, 540), "Your Headline", font=font, fill=(255,255,255))
+img.save("frame_00001.png")
+```
+
+Then assemble:
+```bash
+ffmpeg -framerate 30 -i frame_%05d.png -i audio.mp3 -c:v libx264 -pix_fmt yuv420p -c:a aac -shortest output.mp4
+```
+
+**See:** `youtube-content-pipeline/scripts/pil_frame_generator.py` for a full boilerplate with gradient backgrounds, centered text, and scene management.
 
 ### Remotion (React)
 
@@ -199,6 +246,8 @@ Check [heygen.com/pricing](https://www.heygen.com/pricing) for current prices.
 **Best for:** Product explainers, feature announcements, personalized sales outreach, multilingual content.
 
 **Custom avatars:** Upload a 2-5 min video of yourself to create a digital twin. Looks and sounds like you, generates videos from text scripts.
+
+**⚠️ Fallback when HeyGen fails:** If HeyGen API is unavailable or the user just wants a simple photo-based avatar, use PIL to place their circular-cropped photo on a gradient background with text overlays. See the PIL + ffmpeg section above.
 
 ### Synthesia
 

@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "session_id": "proc_f8d9eb341fe6",
+    "command": "cd /root/globalshield_video/final && python3 -m http.server 8888",
+    "pid": 3971256,
+    "pid_scope": "host",
+    "cwd": "/root/globalshield_video",
+    "started_at": 1781689348.3410027,
+    "task_id": "default",
+    "session_key": "agent:main:telegram:dm:8094459154",
+    "watcher_platform": "",
+    "watcher_chat_id": "",
+    "watcher_user_id": "",
+    "watcher_user_name": "",
+    "watcher_thread_id": "",
+    "watcher_message_id": "",
+    "watcher_interval": 0,
+    "notify_on_complete": false,
+    "watch_patterns": []
+  }
+]

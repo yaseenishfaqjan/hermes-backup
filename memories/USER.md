@@ -12,4 +12,4 @@ User: Yaseen Ishfaq Jan
 §
 PREFERS DIRECT EXECUTION: Run commands immediately when asked, show results not plans. Keep updates concise - file paths + status only. No lengthy explanations. WhatsApp comms, NO markdown.
 §
-User prefers direct execution over lengthy explanations. When asked to do something, run commands immediately and show results. Use concise status updates like [5/20] rather than verbose descriptions. Always show absolute file paths for generated files. User gets frustrated with too much explanation before action.
+User prefers direct execution over lengthy explanations. Run commands immediately, show results not plans. Concise status updates [5/20], absolute file paths always. For video production: prefers PIL+ffmpeg fallback over complex npm setups when APIs fail. Wants working download links, not descriptions.
