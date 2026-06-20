@@ -106,8 +106,13 @@ Use this skill for:
 - dashboard concepts
 - settings, command palettes, modals, cards, forms, empty states
 - redesigns based on screenshots, repos, brand docs, or UI kits
+- **throwaway HTML mockups** (2-3 variants to compare directions) — see § Sketching below
+- **architecture diagrams** (dark-themed SVG infra diagrams) — see § Diagrams below
+- **hand-drawn diagrams** (Excalidraw JSON for flowcharts, sequence diagrams) — see § Diagrams below
 
 Do not use this skill for pure DESIGN.md token authoring unless the user specifically asks for a DESIGN.md file. Use `design-md` for that.
+
+Do not use this skill for generative art / p5.js creative coding — use `p5js` for that.
 
 ## Design Principle: Start From Context, Not Vibes
 
@@ -578,6 +583,101 @@ When adapting a Claude Design style request into CLI/API mode, use this mental t
 
 ```text
 You are running in CLI/API mode, not hosted Claude Design. Ignore references to hosted-only tools or preview panes. Produce complete local design artifacts, usually self-contained HTML with embedded CSS/JS, and verify with available local tools before returning. Preserve the design process: gather context, define the system, produce options, avoid filler, and meet a high visual bar.
+```
+
+---
+
+## Sketching: Throwaway HTML Mockups
+
+When the user wants to **see a design direction before committing** — exploring a UI/UX idea as disposable HTML mockups. Generate 2-3 interactive variants so the user can compare visual directions side-by-side, not shippable code.
+
+### Core method
+
+```
+intake → variants → head-to-head → pick winner (or iterate)
+```
+
+**Intake** (skip if user gave enough):
+1. **Feel.** "What should this feel like? Adjectives, emotions, a vibe."
+2. **References.** "What apps, sites, or products capture the feel you're imagining?"
+3. **Core action.** "What's the single most important thing a user does on this screen?"
+
+**Variants** (2-3, never 1):
+Each variant is a complete standalone HTML file with inline CSS. Take a **different design stance**, not different pixel values. Good axes: density (compact vs airy), emphasis (content-first vs action-first), aesthetic (editorial vs utilitarian vs playful), layout (single-column vs sidebar vs split-pane).
+
+**Verify visually** — use `browser_navigate` + `browser_vision` to check each variant before presenting.
+
+**Head-to-head comparison:** Present a table comparing dimensions (density, primary action visibility, scan-ability, feel) and opinionate on which is best for what user type.
+
+### Variant structure
+
+```
+sketches/
+├── 001-calm-editorial/
+│   ├── index.html
+│   └── README.md
+├── 001-utilitarian-dense/
+│   └── ...
+```
+
+Each `README.md` answers: design stance, key choices, trade-offs, best-for.
+
+### Interactivity bar
+
+A sketch is interactive enough when the user can:
+1. Click a primary action and something visible happens
+2. See one meaningful state transition
+3. Hover recognizable affordances
+
+More than that is over-engineering a throwaway. Less than that is a screenshot.
+
+---
+
+## Diagrams
+
+### Architecture Diagrams (Dark SVG)
+
+For software system architecture, cloud infrastructure, microservice topology, database+API maps. Generate as standalone HTML with inline SVG.
+
+**Design system:**
+- Background: Slate-950 (`#020617`) with 40px grid pattern
+- Font: JetBrains Mono, sizes 12px (names), 9px (sublabels), 8px (annotations)
+- Components: rounded rectangles (`rx="6"`) with 1.5px strokes, categorized by color:
+  - Frontend: fill `rgba(8,51,68,0.4)`, stroke `#22d3ee` (cyan)
+  - Backend: fill `rgba(6,78,59,0.4)`, stroke `#34d399` (emerald)
+  - Database: fill `rgba(76,29,149,0.4)`, stroke `#a78bfa` (violet)
+  - AWS/Cloud: fill `rgba(120,53,15,0.3)`, stroke `#fbbf24` (amber)
+  - Security: fill `rgba(136,19,55,0.4)`, stroke `#fb7185` (rose)
+- Connections: arrows behind components (z-order), arrowheads via SVG markers, security flows dashed rose lines
+- Boundaries: security groups dashed (`4,4`) rose, regions large dashed (`8,4`) amber `rx="12"`
+- Legend: placed outside all boundaries, 20px below lowest boundary
+
+**Double-rect masking:** Draw opaque background rect (`#0f172a`) then semi-transparent styled rect on top to prevent arrows showing through.
+
+**Document structure:** Header (title + pulsing dot) → Main SVG (rounded border card) → Summary cards grid (3 cards) → Footer.
+
+### Excalidraw Diagrams (Hand-drawn JSON)
+
+For flowcharts, sequence diagrams, concept maps, whiteboard-style sketches. Generate as `.excalidraw` JSON files drag-and-droppable onto [excalidraw.com](https://excalidraw.com).
+
+**Envelope:**
+```json
+{"type": "excalidraw", "version": 2, "source": "hermes-agent", "elements": [...], "appState": {"viewBackgroundColor": "#ffffff"}}
+```
+
+**Key rules:**
+- Minimum fontSize: 16 for body text, 20 for titles, 14 for annotations only
+- Minimum shape size: 120x60 for labeled rectangles
+- Use container binding for labels: shape has `boundElements: [{"id": "t_r1", "type": "text"}]`, text has `containerId: "r1"`
+- Do NOT use `"label": {"text": "..."}` on shapes — silently ignored
+- Drawing order = z-order: background → shape → its text → its arrows → next shape
+- Colors: light blue `#a5d8ff` (primary), light green `#b2f2bb` (success), light orange `#ffd8a8` (warning), light purple `#d0bfff` (processing), light red `#ffc9c9` (error), light yellow `#fff3bf` (notes), light teal `#c3fae8` (storage)
+- Never use emoji in text — doesn't render in Excalidraw font
+- Never use light gray on white backgrounds; minimum text color: `#757575`
+
+**Upload for shareable link:**
+```bash
+python3 -c "import cryptography; ..."  # or use excalidraw.com directly
 ```
 
 ## Pitfalls

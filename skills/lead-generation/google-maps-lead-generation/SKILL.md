@@ -1,5 +1,5 @@
 ---
-title: Google Maps Lead Generation via Places API
+title: Google Maps Lead Generation
 name: google-maps-lead-generation
 description: Generate targeted business leads by scraping Google Maps using the Google Places API with batch processing, deduplication, and CSV export.
 trigger: |
@@ -8,9 +8,9 @@ trigger: |
   Google Maps API for any industry or location.
 ---
 
-# Google Maps Lead Generation via Places API
+# Google Maps Lead Generation
 
-Generate targeted business leads by scraping Google Maps using the Google Places API.
+Generate targeted business leads by scraping Google Maps using the Google Places API. Covers search, pagination, deduplication, enrichment, and large-scale batch processing.
 
 ## Prerequisites
 
@@ -157,14 +157,60 @@ Save as CSV with columns:
 - 100-200 unique leads per city across all keywords
 - 100 cities × 100 leads = ~10,000 leads
 
+## Extended Scraping Guide
+
+For large-scale scraping jobs (10,000+ leads), use these additional patterns:
+
+### Keyword Strategy by Industry
+
+**Islamic Education / Quran Learning:**
+- "Quran tutoring", "Islamic school", "Quran classes", "Islamic academy", "Quran memorization", "Hifz program", "Islamic education center", "Muslim school", "Quran learning center", "Tajweed classes"
+
+**Roofing / Construction:**
+- "roofing contractor", "roofing company", "roof repair", "roof replacement", "commercial roofing", "residential roofing", "roofing services", "roof inspection"
+
+**City Selection Strategy:**
+- Target cities with high concentrations of your target demographic
+- For Islamic education: Dearborn MI, Paterson NJ, Houston TX, Chicago IL
+- For roofing: Storm-prone areas (Florida, Texas, Midwest), high-growth cities
+
+### Background Execution
+
+For large jobs that take hours:
+
+```bash
+# Run in background with logging
+nohup python3 scraper.py > scraper_output.log 2>&1 &
+
+# Check progress
+tail -f scraper_output.log
+```
+
+Use `terminal(background=True, notify_on_complete=True)` for long-running scrapes.
+
+### API Costs
+
+- Nearby Search: ~$17 per 1000 requests
+- Place Details: ~$17 per 1000 requests
+- 10,000 leads ≈ $340 in API costs (20,000 requests)
+
+### Lead Estimation Formula
+
+```
+Estimated Leads = Cities × Keywords × Average Results per Query
+Example: 200 cities × 20 keywords × 5 results = ~20,000 leads
+```
+
 ## Pitfalls
 
 - **Timeout on large batches:** Never try to process 100 cities in one script. Use 20-city batches.
-- **API key in scripts:** The key gets mangled by the system when writing files. Use `sed` to fix: `sed -i '7s/.*/API_KEY=*** script.py`
-- **API key masking in execute_code:** Never write API keys directly in `execute_code` or `write_file` — use file/env var indirection. The platform replaces the key with `***` which corrupts the script syntax.`
+- **API key in scripts:** The key gets mangled by the system when writing files. Use file/env var indirection.
+- **API key masking in execute_code:** Never write API keys directly in `execute_code` or `write_file` — use file/env var indirection. The platform replaces the key with `***` which corrupts the script syntax.
 - **Missing next_page_token delay:** If you don't wait 2 seconds, Google returns INVALID_REQUEST
 - **Duplicate place_ids:** Always deduplicate across batches, not just within a batch
 - **OVER_QUERY_LIMIT:** Add a 5-second delay and retry if this status appears
+- **Cannot scrape individuals:** Google Maps API only returns business listings, not personal contact info
+- **Geocoding failures:** Some cities may fail to geocode — skip gracefully and continue
 
 ## Scripts
 

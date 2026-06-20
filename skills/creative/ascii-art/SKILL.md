@@ -320,3 +320,43 @@ When tools above don't have what's needed, generate ASCII art directly using the
 7. **Weather/moon art** → wttr.in via curl
 8. **Something custom/creative** → LLM generation with Unicode palette
 9. **Any tool not installed** → install it, or fall back to next option
+
+---
+
+## ASCII Video Production
+
+For animated ASCII art (video-to-ASCII, audio-reactive visualizers, generative animations), use the Python-based pipeline. This is a separate advanced workflow from static text art.
+
+### Stack
+
+| Layer | Tool | Purpose |
+|-------|------|---------|
+| Core | Python 3.10+, NumPy | Math, array ops |
+| Imaging | Pillow (PIL) | Font rasterization, frame I/O |
+| Video | ffmpeg (CLI) | Decode/encode |
+| Signal | SciPy (optional) | FFT for audio-reactive modes |
+
+### Pipeline
+
+```
+INPUT → ANALYZE → SCENE_FN → TONEMAP → SHADE → ENCODE
+```
+
+### Modes
+
+| Mode | Input | Output |
+|------|-------|--------|
+| Video-to-ASCII | Video file | ASCII recreation |
+| Audio-reactive | Audio file | Generative visuals driven by audio |
+| Generative | None | Procedural ASCII animation |
+| Hybrid | Video + audio | ASCII video with audio-reactive overlays |
+| Lyrics/text | Audio + SRT | Timed text with visual effects |
+
+### Key Implementation Notes
+
+- **Brightness**: Use adaptive `tonemap()`, never linear multipliers
+- **Font cell height**: Use `font.getmetrics()` not `textbbox()` on macOS
+- **ffmpeg deadlock**: Never `stderr=subprocess.PIPE` with long-running ffmpeg
+- **Performance target**: ~100-200ms/frame total
+
+For full details (38 shader catalog, effect building blocks, scene design patterns, optimization), see the archived `ascii-video` skill references or generate a new project using the patterns above.

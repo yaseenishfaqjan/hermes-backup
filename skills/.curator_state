@@ -1,9 +1,9 @@
 {
-  "last_report_path": null,
-  "last_run_at": "2026-06-12T09:22:58.498542+00:00",
-  "last_run_duration_seconds": null,
-  "last_run_summary": "deferred first run — curator seeded, will run after one interval; use `hermes curator run --dry-run` to preview now",
+  "last_report_path": "/root/.hermes/logs/curator/20260619-093730",
+  "last_run_at": "2026-06-19T09:37:30.033985+00:00",
+  "last_run_duration_seconds": 2491.044852,
+  "last_run_summary": "auto: no changes; llm: The umbrella-building consolidation pass is complete. Here's a summary of what was accomplished:\n\n## Curator Umbrella-Building Pass — Complete\n\n### Clusters Processed (15 clusters, 44 skills archived)\n\n| Cluster | Skills | Umbrella | Action…\narchived 48 skill(s):\n  • architecture-diagram → claude-design\n  • ascii-video → ascii-art\n  • excalidraw → claude-design\n  • google-maps-lead-scraping → google-maps-lead-generation\n  • hermes-agent-skill-authoring → hermes-agent\n  • sketch → claude-design\n  • apple-notes — pruned (stale)\n  • apple-reminders — pruned (stale)\n  • arxiv — pruned (stale)\n  • audiocraft-audio-generation — pruned (stale)\n  … and 38 more\nfull report: hermes curator status\nkeep an umbrella stable: hermes curator pin ascii-art",
   "last_run_summary_shown_at": null,
   "paused": false,
-  "run_count": 0
+  "run_count": 1
 }

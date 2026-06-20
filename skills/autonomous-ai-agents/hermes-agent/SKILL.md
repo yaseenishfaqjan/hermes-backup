@@ -1009,12 +1009,83 @@ Full design notes, the exact emitted strings, and testing pitfalls:
 
 **Refactor-safety pattern (POSIX-equivalence guard):** when you extract inline logic into a helper that adds Windows/platform-specific behavior, keep a `_legacy_<name>` oracle function in the test file that's a verbatim copy of the old code, then parametrize-diff against it. Example: `tests/tools/test_code_execution_windows_env.py::TestPosixEquivalence`. This locks in the invariant that POSIX behavior is bit-for-bit identical and makes any future drift fail loudly with a clear diff.
 
+---
+
+## Skill Authoring
+
+Create and edit in-repo skills under `skills/<category>/<name>/SKILL.md`. These ship with the package, unlike user-local skills at `~/.hermes/skills/`.
+
+### When to Author In-Repo
+
+- User asks to add a skill "in this branch / repo / commit"
+- You're committing a reusable workflow that should ship with hermes-agent
+- You're editing an existing skill under `/home/bb/hermes-agent/skills/`
+
+### Required Frontmatter
+
+Source of truth: `tools/skill_manager_tool.py::_validate_frontmatter`.
+
+```yaml
+---
+name: my-skill-name               # lowercase, hyphens, ≤64 chars
+description: "Use when <trigger>. <one-line behavior>."
+version: 1.0.0
+author: Hermes Agent
+license: MIT
+metadata:
+  hermes:
+    tags: [short, descriptive, tags]
+    related_skills: [other-skill, another-skill]
+---
+```
+
+Hard requirements:
+- Starts with `---` at byte 0 (no leading blank line)
+- Closes with `\n---\n` before body
+- `name` and `description` fields present
+- Description ≤ 1024 chars
+- Non-empty body after closing `---`
+- Total file ≤ 100,000 chars (aim for 8-15k)
+
+### Peer-Matched Structure
+
+```
+# <Title>
+
+## Overview
+## When to Use
+## <Topic sections>
+## Common Pitfalls
+## Verification Checklist
+```
+
+### Directory Placement
+
+```
+skills/<category>/<skill-name>/SKILL.md
+```
+
+Categories: `autonomous-ai-agents`, `creative`, `data-science`, `devops`, `github`, `media`, `mlops/*`, `note-taking`, `productivity`, `research`, `smart-home`, `social-media`, `software-development`, etc.
+
+### Workflow
+
+1. Survey 2-3 peers in the target category
+2. Draft with `write_file` to `skills/<category>/<name>/SKILL.md`
+3. Validate locally (YAML parse, length checks)
+4. `git add` + commit on the active branch
+5. Note: current session won't see the new skill until `/reset`
+
+### Common Pitfalls
+
+- **Using `skill_manage(action='create')` for in-repo skills** — writes to `~/.hermes/skills/`, not the repo. Use `write_file` instead.
+- **Leading whitespace before `---`** — validator checks `content.startswith("---")`
+- **Description too generic** — start with "Use when ..." describing the trigger class
+- **Linking to user-local skills** — `related_skills` only resolves in-repo for other clones
+
 ### Commit Conventions
 
 ```
 type: concise subject line
-
-Optional body.
 ```
 
 Types: `fix:`, `feat:`, `refactor:`, `docs:`, `chore:`
