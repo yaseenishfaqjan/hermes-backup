@@ -20,7 +20,7 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 7
+        "completed": 8
       },
       "enabled": true,
       "state": "scheduled",
@@ -28,7 +28,7 @@
       "paused_reason": null,
       "created_at": "2026-06-14T09:54:24.144927-05:00",
       "next_run_at": "2026-06-23T03:00:00-05:00",
-      "last_run_at": "2026-06-21T03:01:25.553843-05:00",
+      "last_run_at": "2026-06-22T03:00:54.903916-05:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -62,17 +62,17 @@
       "schedule_display": "0 9 * * *",
       "repeat": {
         "times": null,
-        "completed": 7
+        "completed": 8
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-15T01:04:18.539458-05:00",
-      "next_run_at": "2026-06-22T09:00:00-05:00",
-      "last_run_at": "2026-06-21T09:04:14.030971-05:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-06-23T09:00:00-05:00",
+      "last_run_at": "2026-06-22T09:16:20.055468-05:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: HTTP 429: You've reached kimi monthly usage limit for this billing cycle. Your quota will be refreshed in the next cycle. Upgrade to get more: https://www.kimi.com/code/console?from=quota-upgrade",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": {
@@ -87,5 +87,5 @@
       "workdir": null
     }
   ],
-  "updated_at": "2026-06-22T03:00:14.130377-05:00"
+  "updated_at": "2026-06-22T09:16:20.057335-05:00"
 }
