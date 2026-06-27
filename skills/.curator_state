@@ -1,9 +1,9 @@
 {
-  "last_report_path": "/root/.hermes/logs/curator/20260619-093730",
-  "last_run_at": "2026-06-19T09:37:30.033985+00:00",
-  "last_run_duration_seconds": 2491.044852,
-  "last_run_summary": "auto: no changes; llm: The umbrella-building consolidation pass is complete. Here's a summary of what was accomplished:\n\n## Curator Umbrella-Building Pass — Complete\n\n### Clusters Processed (15 clusters, 44 skills archived)\n\n| Cluster | Skills | Umbrella | Action…\narchived 48 skill(s):\n  • architecture-diagram → claude-design\n  • ascii-video → ascii-art\n  • excalidraw → claude-design\n  • google-maps-lead-scraping → google-maps-lead-generation\n  • hermes-agent-skill-authoring → hermes-agent\n  • sketch → claude-design\n  • apple-notes — pruned (stale)\n  • apple-reminders — pruned (stale)\n  • arxiv — pruned (stale)\n  • audiocraft-audio-generation — pruned (stale)\n  … and 38 more\nfull report: hermes curator status\nkeep an umbrella stable: hermes curator pin ascii-art",
+  "last_report_path": "/root/.hermes/logs/curator/20260626-093913",
+  "last_run_at": "2026-06-26T09:39:13.519288+00:00",
+  "last_run_duration_seconds": 27.57797,
+  "last_run_summary": "auto: no changes; llm: API call failed after 3 retries: HTTP 429: You've reached kimi monthly usage limit for this billing cycle. Your quota will be refreshed in the next cycle. Upgrade to get more: https://www.kimi.com/code/console?from=quota-upgrade",
   "last_run_summary_shown_at": null,
   "paused": false,
-  "run_count": 1
+  "run_count": 2
 }
