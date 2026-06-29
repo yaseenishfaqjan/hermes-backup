@@ -20,15 +20,15 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 13
+        "completed": 14
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-14T09:54:24.144927-05:00",
-      "next_run_at": "2026-06-28T03:00:00-05:00",
-      "last_run_at": "2026-06-27T03:01:01.825979-05:00",
+      "next_run_at": "2026-06-29T03:00:00-05:00",
+      "last_run_at": "2026-06-28T03:01:15.151755-05:00",
       "last_status": "error",
       "last_error": "RuntimeError: HTTP 429: You've reached kimi monthly usage limit for this billing cycle. Your quota will be refreshed in the next cycle. Upgrade to get more: https://www.kimi.com/code/console?from=quota-upgrade",
       "last_delivery_error": null,
@@ -62,15 +62,15 @@
       "schedule_display": "0 9 * * *",
       "repeat": {
         "times": null,
-        "completed": 13
+        "completed": 14
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-15T01:04:18.539458-05:00",
-      "next_run_at": "2026-06-28T09:00:00-05:00",
-      "last_run_at": "2026-06-27T09:01:02.883476-05:00",
+      "next_run_at": "2026-06-29T09:00:00-05:00",
+      "last_run_at": "2026-06-28T09:01:19.659791-05:00",
       "last_status": "error",
       "last_error": "RuntimeError: HTTP 429: You've reached kimi monthly usage limit for this billing cycle. Your quota will be refreshed in the next cycle. Upgrade to get more: https://www.kimi.com/code/console?from=quota-upgrade",
       "last_delivery_error": null,
@@ -87,5 +87,5 @@
       "workdir": null
     }
   ],
-  "updated_at": "2026-06-27T09:01:02.884427-05:00"
+  "updated_at": "2026-06-28T09:01:19.660482-05:00"
 }
