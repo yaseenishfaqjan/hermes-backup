@@ -20,15 +20,15 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 20
+        "completed": 21
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-14T09:54:24.144927-05:00",
-      "next_run_at": "2026-07-05T03:00:00-05:00",
-      "last_run_at": "2026-07-04T03:00:48.164453-05:00",
+      "next_run_at": "2026-07-06T03:00:00-05:00",
+      "last_run_at": "2026-07-05T03:01:01.231548-05:00",
       "last_status": "error",
       "last_error": "RuntimeError: Error code: 401 - {'error': {'type': 'authentication_error', 'message': 'The API Key appears to be invalid or may have expired. Please verify your credentials and try again.'}, 'type': 'error'}",
       "last_delivery_error": null,
@@ -62,15 +62,15 @@
       "schedule_display": "0 9 * * *",
       "repeat": {
         "times": null,
-        "completed": 20
+        "completed": 21
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-15T01:04:18.539458-05:00",
-      "next_run_at": "2026-07-05T09:00:00-05:00",
-      "last_run_at": "2026-07-04T09:00:45.467734-05:00",
+      "next_run_at": "2026-07-06T09:00:00-05:00",
+      "last_run_at": "2026-07-05T09:00:57.023318-05:00",
       "last_status": "error",
       "last_error": "RuntimeError: Error code: 401 - {'error': {'type': 'authentication_error', 'message': 'The API Key appears to be invalid or may have expired. Please verify your credentials and try again.'}, 'type': 'error'}",
       "last_delivery_error": null,
@@ -87,5 +87,5 @@
       "workdir": null
     }
   ],
-  "updated_at": "2026-07-04T09:00:45.469319-05:00"
+  "updated_at": "2026-07-05T09:00:57.024218-05:00"
 }
