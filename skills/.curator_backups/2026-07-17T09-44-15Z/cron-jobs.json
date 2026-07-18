@@ -1,0 +1,91 @@
+{
+  "jobs": [
+    {
+      "id": "c94ece51d966",
+      "name": "daily-hermes-backup",
+      "prompt": "Run a daily backup of Hermes configuration to GitHub. \n\nSteps:\n1. Navigate to /root/.hermes\n2. Add all changes: git add -A\n3. Commit with timestamp: git commit -m \"Daily backup - $(date)\" || echo \"No changes\"\n4. Push to GitHub: git push origin main\n5. Verify push was successful\n\nIf push fails, check git credentials and notify user.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 3 * * *",
+        "display": "0 3 * * *"
+      },
+      "schedule_display": "0 3 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 33
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-06-14T09:54:24.144927-05:00",
+      "next_run_at": "2026-07-18T03:00:00-05:00",
+      "last_run_at": "2026-07-17T03:00:26.747036-05:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: Error code: 401 - {'error': {'type': 'authentication_error', 'message': 'The API Key appears to be invalid or may have expired. Please verify your credentials and try again.'}, 'type': 'error'}",
+      "last_delivery_error": null,
+      "deliver": "origin",
+      "origin": {
+        "platform": "whatsapp",
+        "chat_id": "54740029325547@lid",
+        "chat_name": "Yaseen",
+        "thread_id": null
+      },
+      "enabled_toolsets": null,
+      "workdir": null
+    },
+    {
+      "id": "6c8d4b56e8dc",
+      "name": "daily-social-media-posts",
+      "prompt": "Post daily marketing content to social media using Zernio API.\n\nSteps:\n1. Check if ZERNIO_API_KEY is set\n2. Run the batch posting script: python3 /root/.hermes/skills/social-media/zernio-social-media/templates/batch_post_example.py\n3. Report results back to user\n4. If errors occur, notify user with details\n\nThe script will post:\n- Scalaro.io roofing marketing video\n- Amaan Academy Quran learning video\n- Text-only posts with tips and offers\n\nPlatforms: Instagram, TikTok, Facebook, LinkedIn, Twitter",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * *",
+        "display": "0 9 * * *"
+      },
+      "schedule_display": "0 9 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 32
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-06-15T01:04:18.539458-05:00",
+      "next_run_at": "2026-07-17T09:00:00-05:00",
+      "last_run_at": "2026-07-16T09:00:10.154755-05:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: Error code: 401 - {'error': {'type': 'authentication_error', 'message': 'The API Key appears to be invalid or may have expired. Please verify your credentials and try again.'}, 'type': 'error'}",
+      "last_delivery_error": null,
+      "deliver": "origin",
+      "origin": {
+        "platform": "whatsapp",
+        "chat_id": "54740029325547@lid",
+        "chat_name": "Yaseen",
+        "thread_id": null
+      },
+      "enabled_toolsets": [
+        "terminal"
+      ],
+      "workdir": null
+    }
+  ],
+  "updated_at": "2026-07-17T03:00:26.747792-05:00"
+}
