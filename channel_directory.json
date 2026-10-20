@@ -1,14 +1,7 @@
 {
-  "updated_at": "2026-10-18T20:00:09.966575",
+  "updated_at": "2026-10-20T02:58:54.237623",
   "platforms": {
-    "telegram": [
-      {
-        "id": "8094459154",
-        "name": "Yaseen Jan",
-        "type": "dm",
-        "thread_id": null
-      }
-    ],
+    "telegram": [],
     "discord": [],
     "whatsapp": [
       {
