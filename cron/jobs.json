@@ -20,7 +20,7 @@
       "schedule_display": "0 3 * * *",
       "repeat": {
         "times": null,
-        "completed": 158
+        "completed": 159
       },
       "enabled": true,
       "state": "scheduled",
@@ -28,7 +28,7 @@
       "paused_reason": null,
       "created_at": "2026-06-14T09:54:24.144927-05:00",
       "next_run_at": "2026-11-20T03:00:00-06:00",
-      "last_run_at": "2026-11-18T03:01:00.197735-06:00",
+      "last_run_at": "2026-11-19T03:02:04.147291-06:00",
       "last_status": "error",
       "last_error": "RuntimeError: Error code: 401 - {'error': {'message': 'The API Key appears to be invalid or may have expired. Please verify your credentials and try again.', 'type': 'invalid_authentication_error'}}",
       "last_delivery_error": "delivery error: WhatsApp send failed: Cannot connect to host localhost:3000 ssl:default [Multiple exceptions: [Errno 111] Connect call failed ('::1', 3000, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 3000)]",
@@ -62,15 +62,15 @@
       "schedule_display": "0 9 * * *",
       "repeat": {
         "times": null,
-        "completed": 158
+        "completed": 159
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-15T01:04:18.539458-05:00",
-      "next_run_at": "2026-11-19T09:00:00-06:00",
-      "last_run_at": "2026-11-18T09:01:01.097553-06:00",
+      "next_run_at": "2026-11-20T09:00:00-06:00",
+      "last_run_at": "2026-11-19T09:00:29.483277-06:00",
       "last_status": "error",
       "last_error": "RuntimeError: Error code: 401 - {'error': {'message': 'The API Key appears to be invalid or may have expired. Please verify your credentials and try again.', 'type': 'invalid_authentication_error'}}",
       "last_delivery_error": "delivery error: WhatsApp send failed: Cannot connect to host localhost:3000 ssl:default [Multiple exceptions: [Errno 111] Connect call failed ('::1', 3000, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 3000)]",
@@ -87,5 +87,5 @@
       "workdir": null
     }
   ],
-  "updated_at": "2026-11-19T03:00:11.684033-06:00"
+  "updated_at": "2026-11-19T09:00:29.484504-06:00"
 }
